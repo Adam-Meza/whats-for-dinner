@@ -4,7 +4,7 @@ let items = {
         {name: "Garlic Butter Mushrooms", type: "sides", favorite: false},
         {name: "Cripsy Potatoes", type: "sides", favorite: false},
         {name: "Arugula Goat Cheese Salad", type: "sides", favorite: false},
-        {name: "Bacon Friend Brussel prouts", type: "sides", favorite: false},
+        {name: "Bacon Frend Brussel Sprouts", type: "sides", favorite: false},
     ],
     mains: [
         {name: "18oz Ribeye", type: "mains", favorite: false},
@@ -13,7 +13,6 @@ let items = {
         {name: "Panang Curry", type: "mains", favorite: false},
         {name: "Brisket", type: "mains", favorite: false},
     ],
-
     desserts:[
         {name: "Baklava", type: "desserts", favorite: false},
         {name: "Apple Pie", type: "desserts", favorite: false},
@@ -26,13 +25,14 @@ let items = {
 var currentItem;
 
 var letsCookBtn = document.querySelector(".lets-cook")
-var displayItemBox = document.querySelector(".item")
+var displayItemBox = document.querySelector(".item-box")
+var displayItemInst = document.querySelector(".item")
 var displayIcon = document.querySelector(".cookpot")
 
 letsCookBtn.addEventListener('click', displayItem)
 
 function displayItem() {
-    displayItemBox.innerText = "";
+    displayItemInst.innerText = "";
     var checkBoxes = document.getElementsByName("food")
     for (var i = 0; i < checkBoxes.length; i++){
         if (checkBoxes[i].checked){
@@ -40,8 +40,8 @@ function displayItem() {
             currentItem = (typeInstArray[getRandomIndex(typeInstArray)])
         }
     }
-    
-    displayItemBox.innerText = `${currentItem.name}`;
+
+    displayItemInst.innerText = `${currentItem.name}!`;
     displayIcon.classList.add("hidden");
     displayItemBox.classList.remove("hidden");
 }
