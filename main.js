@@ -23,6 +23,8 @@ let items = {
     ]
 }
 
+var currentItem;
+
 var letsCookBtn = document.querySelector(".lets-cook")
 var displayItemBox = document.querySelector(".item")
 var displayIcon = document.querySelector(".cookpot")
@@ -31,7 +33,15 @@ letsCookBtn.addEventListener('click', displayItem)
 
 function displayItem() {
     displayItemBox.innerText = "";
-    displayItemBox.innerText = "test";
+    var checkBoxes = document.getElementsByName("food")
+    for (var i = 0; i < checkBoxes.length; i++){
+        if (checkBoxes[i].checked){
+            var typeInstArray = items[(checkBoxes[i].classList.value)]
+            currentItem = (typeInstArray[getRandomIndex(typeInstArray)])
+        }
+    }
+    
+    displayItemBox.innerText = `${currentItem.name}`;
     displayIcon.classList.add("hidden");
     displayItemBox.classList.remove("hidden");
 }
