@@ -39,7 +39,11 @@ let items = {
 }
 
 var currentItem;
-var favoriteItems = {sides:[],mains:[], desserts:[]}
+var favoriteItems = {
+    sides:[],
+    mains:[],
+    desserts:[]
+}
 
 var letsCookBtn = document.querySelector(".lets-cook");
 var displayItemBox = document.querySelector(".item-box");
@@ -68,16 +72,19 @@ function getRandomIndex(array){
     return Math.floor(Math.random() * array.length);
 }
 
-// function favoriteItem(){
-//     if (favoriteItems.includes(currentItem)){
-//     favoriteItems.currentItem.type.push(currentItem)
-//     }
-// }
+function favoriteItem(){
+    let x = currentItem.type
+    favoriteItems[x].push(currentItem)
+}
+
 
 // so if i want to see if an item is favorited or not the path
 // woudld be 
 // object, into key, into array, into index of that array, 
 // in to key value. so O,A,O,Boolean
 
+// function getType(itemInst){
+//     return // 
+// }
 
 

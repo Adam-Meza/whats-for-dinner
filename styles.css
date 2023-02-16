@@ -1,8 +1,5 @@
 /* font-family: 'Roboto', sans-serif;
-
-COLORS
 teal - #0fb9b1;
-
 grey - #95a5a6;
 red - #ee5253 */
 
@@ -18,14 +15,7 @@ header{
     justify-content: space-between;
 }
 
-.main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 5%
-}
-
+/* buttons */
 .button{
     box-shadow: none;
     border-radius: 0px;
@@ -40,29 +30,13 @@ header{
     background-color:#0fb9b1;
 }
 
-span{
-    color:red
-}
-
-.box ul li {
+/* main display */ 
+.main {
     display: flex;
-    list-style-type:none;
-    align-content: space-evenly
-}
-
-.display{
-    justify-content: center;
-    flex-direction: center;
-    flex-basis: 30%
-}
-
-img{
-    flex-shrink: 2;
-    size: 30px;
-}
-
-.hidden{
-    display:none;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 5%
 }
 
 .box{
@@ -74,10 +48,36 @@ img{
     
 }
 
+.box ul li {
+    display: flex;
+    list-style-type:none;
+    align-content: space-evenly
+}
+
+/* .display{
+    justify-content: center;
+    flex-direction: center;
+    flex-basis: 30%
+} */
+
+img{
+    flex-shrink: 2;
+    size: 30px;
+}
+
+/* randomshit */
 .item{
     font-size: 30;
 }
 
 .suggestion{
     font-style: italic;
+}
+
+span{
+    color:red
+}
+
+.hidden{
+    display:none;
 }
