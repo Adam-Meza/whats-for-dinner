@@ -74,17 +74,12 @@ function getRandomIndex(array){
 
 function favoriteItem(){
     let x = currentItem.type
+    currentItem.favorite = true
     favoriteItems[x].push(currentItem)
+    console.log(favoriteItems)
 }
 
-
-// so if i want to see if an item is favorited or not the path
-// woudld be 
-// object, into key, into array, into index of that array, 
-// in to key value. so O,A,O,Boolean
-
-// function getType(itemInst){
-//     return // 
-// }
-
-
+// write a function that displays favorites
+// run a for loop over the favorites array
+// add each one as html plus button to hte locatio nint he html based on type
+// from prably something like favorites[i].type and then set 

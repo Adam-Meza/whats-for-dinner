@@ -10,9 +10,16 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-header{
+.header{
     background-color: #0fb9b1;
+    display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+    
 }
 
 /* buttons */
@@ -23,7 +30,13 @@ header{
     border-radius: 4px;
     padding: 4px;
 }
-
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-around;
+    padding-left: 0px
+}
 .lets-cook{
     padding-left: 15px;
     padding-right: 15px;
@@ -35,34 +48,38 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 5%
+    margin: 3%;
+    height: 45%
+}
+
+[type="radio"]{
+    vertical-align:middle;
 }
 
 .box{
     background-color: rgba(225, 225, 225, .9);
     padding: 3%;
-    flex-basis: 20%;
-    height: 30%;
-    /* justify-content: center */
-    
+    flex-basis: auto;
+    width: 30%;
 }
 
-.box ul li {
+.item-select {
     display: flex;
     list-style-type:none;
-    align-content: space-evenly
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start
 }
 
-/* .display{
+.display{
+    display: flex;
     justify-content: center;
-    flex-direction: center;
-    flex-basis: 30%
-} */
+    align-items: center
+}
 
 img{
-    flex-shrink: 2;
-    size: 30px;
+    height:45%;
+    width:45%
 }
 
 /* randomshit */

@@ -5,15 +5,14 @@
   </head>
   <body>
     <header>
-      <article>
-        <p> What's for Dinner?</p>
-        <button class="add-recipe button">ADD A RECIPE</button>
+      <nav class="header">
+        <p><strong>What's for Dinner?</strong></p>
         <button class="add-recipe button">VIEW FAVORITES</button>
-      </article>
+      </nav>
     </header>
     <article class="main" >
       <sec class="box">
-        <ul>
+        <ul class="item-select">
           <li><h1>What are you looking for?<span>*</span></h1></li>
           <li><input type="radio" name="food" class="sides">Side</input></li>
           <li><input type="radio" name="food" class="mains">Main Dish</input></li>
@@ -29,6 +28,22 @@
           <button class="button favorite">ADD TO FAVORITES</button>
         </div>
       </sec>
+    </article>
+    <article class="favorites hidden">
+      <sec class="favovites-box">
+        <h1>favorites</h1>
+        <ul>
+          <li><h2>Sides</h2></li>
+          <ul></ul>
+          <li><h2>Mains</h2></li>
+          <ul></ul>
+          <li><h2>Desserts</h2></li>
+          <ul></ul>
+        </ul>
+        <button class="clear">clear all</button>
+      </sec>
+
+
     </article>
   </body>
   <script type="text/javascript" src="main.js"></script>
