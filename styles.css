@@ -17,6 +17,7 @@ header{
     background-color: #0fb9b1;
     justify-content: space-between;
 }
+
 .main {
     display: flex;
     flex-direction: row;
@@ -42,10 +43,13 @@ header{
 span{
     color:red
 }
+
 .box ul li {
+    display: flex;
     list-style-type:none;
     align-content: space-evenly
 }
+
 .display{
     justify-content: center;
     flex-direction: center;
@@ -53,11 +57,12 @@ span{
 }
 
 img{
-    size: 30px
+    flex-shrink: 2;
+    size: 30px;
 }
 
 .hidden{
-    display:none
+    display:none;
 }
 
 .box{
@@ -68,9 +73,11 @@ img{
     /* justify-content: center */
     
 }
+
 .item{
     font-size: 30;
 }
+
 .suggestion{
     font-style: italic;
 }

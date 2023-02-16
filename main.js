@@ -5,6 +5,12 @@ let items = {
         {name: "Cripsy Potatoes", type: "sides", favorite: false},
         {name: "Arugula Goat Cheese Salad", type: "sides", favorite: false},
         {name: "Bacon Frend Brussel Sprouts", type: "sides", favorite: false},
+        {name: "Edamame", type: "sides", favorite: false},
+        {name: "Toast and Jam", type: "sides", favorite: false},
+        {name: "Oysters", type: "sides", favorite: false},
+        {name: "Caeser Salad", type: "sides", favorite: false},
+        {name: "Fries", type: "sides", favorite: false},
+
     ],
     mains: [
         {name: "18oz Ribeye", type: "mains", favorite: false},
@@ -12,6 +18,11 @@ let items = {
         {name: "Thai Yellow Curry", type: "mains", favorite: false},
         {name: "Panang Curry", type: "mains", favorite: false},
         {name: "Brisket", type: "mains", favorite: false},
+        {name: "Tacos", type: "mains", favorite: false},
+        {name: "Chilli Cheese Dog", type: "mains", favorite: false},
+        {name: "Gulf Shrimp Platter", type: "mains", favorite: false},
+        {name: "Gumbo", type: "mains", favorite: false},
+        {name: "Ribs", type: "mains", favorite: false},
     ],
     desserts:[
         {name: "Baklava", type: "desserts", favorite: false},
@@ -19,44 +30,54 @@ let items = {
         {name: "Lava Cake", type: "desserts", favorite: false},
         {name: "Ice Cream", type: "desserts", favorite: false},
         {name: "Cheesecake", type: "desserts", favorite: false},
+        {name: "Key Lime Pie", type: "desserts", favorite: false},
+        {name: "Chocolate Mouse", type: "desserts", favorite: false},
+        {name: "Spider Man Popsicle", type: "desserts", favorite: false},
+        {name: "Fudge", type: "desserts", favorite: false},
+        {name: "Donut", type: "desserts", favorite: false},
     ]
 }
 
 var currentItem;
+var favoriteItems = {sides:[],mains:[], desserts:[]}
 
-var letsCookBtn = document.querySelector(".lets-cook")
-var displayItemBox = document.querySelector(".item-box")
-var displayItemInst = document.querySelector(".item")
-var displayIcon = document.querySelector(".cookpot")
+var letsCookBtn = document.querySelector(".lets-cook");
+var displayItemBox = document.querySelector(".item-box");
+var displayItemInst = document.querySelector(".item");
+var displayIcon = document.querySelector(".cookpot");
+var favoriteBtn = document.querySelector(".favorite")
 
-letsCookBtn.addEventListener('click', displayItem)
+letsCookBtn.addEventListener('click', displayItem);
+favoriteBtn.addEventListener('click', favoriteItem)
 
 function displayItem() {
     displayItemInst.innerText = "";
-    var checkBoxes = document.getElementsByName("food")
+    var checkBoxes = document.getElementsByName("food");
     for (var i = 0; i < checkBoxes.length; i++){
         if (checkBoxes[i].checked){
-            var typeInstArray = items[(checkBoxes[i].classList.value)]
-            currentItem = (typeInstArray[getRandomIndex(typeInstArray)])
+            var typeInstArray = items[(checkBoxes[i].classList.value)];
+            currentItem = (typeInstArray[getRandomIndex(typeInstArray)]);
         }
     }
-
     displayItemInst.innerText = `${currentItem.name}!`;
     displayIcon.classList.add("hidden");
     displayItemBox.classList.remove("hidden");
 }
 
 function getRandomIndex(array){
-    return Math.floor(Math.random() * array.length)
+    return Math.floor(Math.random() * array.length);
 }
+
+// function favoriteItem(){
+//     if (favoriteItems.includes(currentItem)){
+//     favoriteItems.currentItem.type.push(currentItem)
+//     }
+// }
 
 // so if i want to see if an item is favorited or not the path
 // woudld be 
-// object, into key, into array, into index of that array,
+// object, into key, into array, into index of that array, 
 // in to key value. so O,A,O,Boolean
 
-
-// maybe I make a seperate "favorite items" array that
-// i can update and generate
 
 
