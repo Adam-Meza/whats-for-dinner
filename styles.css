@@ -1,63 +1,100 @@
 /* font-family: 'Roboto', sans-serif;
-
-COLORS
 teal - #0fb9b1;
-
 grey - #95a5a6;
 red - #ee5253 */
 
 body {
     background-image: url("./assets/burger-friends.jpg");
-    background-size:contain;
+    background-size: 100%;
+    margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
 
-header {
+.header{
     background-color: #0fb9b1;
+    display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+    
 }
+
+/* buttons */
+.button{
+    box-shadow: none;
+    border-radius: 0px;
+    border: 0;
+    border-radius: 4px;
+    padding: 4px;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-around;
+    padding-left: 0px
+}
+.lets-cook{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color:#0fb9b1;
+}
+
+/* main display */ 
 .main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    flex-wrap: wrap
+    margin: 3%;
+    height: 45%
 }
 
-.button{
-    box-shadow: none;
-    border-radius: 0px;
-    border: 0
-}
-/* .add-recipe{
-    background-color: #95a5a6;
-} */
-.lets-cook{
-    background-color:#0fb9b1;
+[type="radio"]{
+    vertical-align:middle;
 }
 
 .box{
-background-color: rgba(225, 225, 225, .9);
-padding: 3%;
-flex-basis: 20%;
-/* justify-content: center */
+    background-color: rgba(225, 225, 225, .9);
+    padding: 3%;
+    flex-basis: auto;
+    width: 30%;
+}
 
+.item-select {
+    display: flex;
+    list-style-type:none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start
+}
+
+.display{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+img{
+    height:45%;
+    width:45%
+}
+
+/* randomshit */
+.item{
+    font-size: 30;
+}
+
+.suggestion{
+    font-style: italic;
 }
 
 span{
     color:red
 }
-.box ul li {
-    list-style-type:none;
-    align-content: space-evenly
-}
-
-
-.display{
-    justify-content: center;
-    flex-direction: center;
-    flex-basis: 30%
-}
 
 .hidden{
-    display:none
+    display:none;
 }

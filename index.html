@@ -5,25 +5,45 @@
   </head>
   <body>
     <header>
-      <article>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-        <button class="add-recipe button">ADD A RECIPE</button>
-      </article>
+      <nav class="header">
+        <p><strong>What's for Dinner?</strong></p>
+        <button class="add-recipe button">VIEW FAVORITES</button>
+      </nav>
     </header>
     <article class="main" >
       <sec class="box">
-        <ul>
+        <ul class="item-select">
           <li><h1>What are you looking for?<span>*</span></h1></li>
-          <li><input type="radio" name ="food">Side</input></li>
-          <li><input type="radio" name ="food">Main Dish</input></li>
-          <li><input type="radio" name ="food">Dessert</input></li>
-          <li><button class="lets-cook button">Let's Cook!</button></li>
+          <li><input type="radio" name="food" class="sides">Side</input></li>
+          <li><input type="radio" name="food" class="mains">Main Dish</input></li>
+          <li><input type="radio" name="food" class="desserts">Dessert</input></li>
+          <li><button class="lets-cook button">LET'S COOK!</button></li>
         </ul>
       </sec>
       <sec class="display box">
         <img class="display cookpot" src="./assets/cookpot.svg" ></img>
-        <p class="display item hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="display item-box hidden">
+          <p class="suggestion">You should make:</p>
+          <p class="item"><span>!</span></p>
+          <button class="button favorite">ADD TO FAVORITES</button>
+        </div>
       </sec>
+    </article>
+    <article class="favorites hidden">
+      <sec class="favovites-box">
+        <h1>favorites</h1>
+        <ul>
+          <li><h2>Sides</h2></li>
+          <ul></ul>
+          <li><h2>Mains</h2></li>
+          <ul></ul>
+          <li><h2>Desserts</h2></li>
+          <ul></ul>
+        </ul>
+        <button class="clear">clear all</button>
+      </sec>
+
+
     </article>
   </body>
   <script type="text/javascript" src="main.js"></script>
