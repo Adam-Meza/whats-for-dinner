@@ -8,6 +8,7 @@ body {
     background-size: 100%;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
+    flex-wrap: wrap;
 }
 
 .header{
@@ -35,16 +36,22 @@ ul{
     flex-direction: column;
     align-items:flex-start;
     justify-content: space-around;
-    padding-left: 0px
+    padding-left: 0px;
+    list-style-type:none;
+}
+li{
+    margin-block-start: .9em;
+    margin-block-end: .9em;
 }
 .lets-cook{
     padding-left: 15px;
     padding-right: 15px;
     background-color:#0fb9b1;
+
 }
 
 /* main display */ 
-.main {
+.main{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -63,16 +70,17 @@ ul{
     width: 30%;
 }
 
-.item-select {
+.item-select, .favorites-box {
     display: flex;
-    list-style-type:none;
+
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start
 }
 
-.display{
+.suggestion-box{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center
 }
@@ -84,11 +92,21 @@ img{
 
 /* randomshit */
 .item{
-    font-size: 30;
+    font-size:2rem;
+    margin-block-start: 0em;
+    margin-block-end: 2em;
+    font-weight: bold
 }
 
 .suggestion{
+    margin-block-start: 4em;
+    margin-block-end: 0em;
     font-style: italic;
+}
+.favorite-box h1, .favorite-box li{
+    font-size: 20%;
+    margin-block-start: 0em;
+    margin-block-end: 0em
 }
 
 span{

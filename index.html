@@ -1,50 +1,38 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./styles.css'>
+    <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
   </head>
   <body>
-    <header>
-      <nav class="header">
+      <nav class='header'>
         <p><strong>What's for Dinner?</strong></p>
-        <button class="add-recipe button">VIEW FAVORITES</button>
+        <button class='main-menu button hidden'>MAIN MENU</button>
+        <button class='view-favorites button'>VIEW FAVORITES</button>
       </nav>
-    </header>
-    <article class="main" >
-      <sec class="box">
-        <ul class="item-select">
+    <article class='main' >
+      <sec class='main-box box'>
+        <ul class='item-select'>
           <li><h1>What are you looking for?<span>*</span></h1></li>
-          <li><input type="radio" name="food" class="sides">Side</input></li>
-          <li><input type="radio" name="food" class="mains">Main Dish</input></li>
-          <li><input type="radio" name="food" class="desserts">Dessert</input></li>
-          <li><button class="lets-cook button">LET'S COOK!</button></li>
+          <li><input type='radio' name='food' class='sides'>Side</input></li>
+          <li><input type='radio' name='food' class='mains'>Main Dish</input></li>
+          <li><input type='radio' name='food' class='desserts'>Dessert</input></li>
+          <li><button class='lets-cook button'>LET'S COOK!</button></li>
         </ul>
       </sec>
-      <sec class="display box">
-        <img class="display cookpot" src="./assets/cookpot.svg" ></img>
-        <div class="display item-box hidden">
-          <p class="suggestion">You should make:</p>
-          <p class="item"><span>!</span></p>
-          <button class="button favorite">ADD TO FAVORITES</button>
+      <sec class='suggestion-box box'>
+        <img class= 'cookpot' src='./assets/cookpot.svg' ></img>
+        <div class='suggestion-display hidden'>
+          <p class='suggestion'>You should make:</p>
+          <p class='item'></p>
+          <button class='button add-favorite'>ADD TO FAVORITES</button>
         </div>
       </sec>
-    </article>
-    <article class="favorites hidden">
-      <sec class="favovites-box">
-        <h1>favorites</h1>
-        <ul>
-          <li><h2>Sides</h2></li>
-          <ul></ul>
-          <li><h2>Mains</h2></li>
-          <ul></ul>
-          <li><h2>Desserts</h2></li>
-          <ul></ul>
+      <sec class='favorites-box box hidden'>
+        <h1>Your Favorites</h1>
+        <ul class='favorites-display'>
         </ul>
-        <button class="clear">clear all</button>
       </sec>
-
-
     </article>
   </body>
-  <script type="text/javascript" src="main.js"></script>
+  <script type='text/javascript' src='main.js'></script>
 </html>
