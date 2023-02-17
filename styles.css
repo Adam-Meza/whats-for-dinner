@@ -20,7 +20,6 @@ body {
     justify-content: space-between;
     padding-left: 1%;
     padding-right: 1%;
-    
 }
 
 /* buttons */
@@ -31,6 +30,7 @@ body {
     border-radius: 4px;
     padding: 4px;
 }
+
 ul{
     display: flex;
     flex-direction: column;
@@ -39,15 +39,16 @@ ul{
     padding-left: 0px;
     list-style-type:none;
 }
-li{
+
+.item-select li{
     margin-block-start: .9em;
     margin-block-end: .9em;
 }
+
 .lets-cook{
     padding-left: 15px;
     padding-right: 15px;
     background-color:#0fb9b1;
-
 }
 
 /* main display */ 
@@ -70,9 +71,8 @@ li{
     width: 30%;
 }
 
-.item-select, .favorites-box {
+.item-select{
     display: flex;
-
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start
@@ -103,10 +103,18 @@ img{
     margin-block-end: 0em;
     font-style: italic;
 }
-.favorite-box h1, .favorite-box li{
-    font-size: 20%;
+
+h1{
+    font-size: 150%;
     margin-block-start: 0em;
-    margin-block-end: 0em
+    margin-block-end: 0em;
+}
+.favorites-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 70%
 }
 
 span{
