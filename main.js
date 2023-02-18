@@ -48,46 +48,52 @@ var mainBox = document.querySelector('.main-box');
 var suggestionBox = document.querySelector('.suggestion-box');
 var favoritesBox = document.querySelector('.favorites-box');
 var suggestionDisplay = document.querySelector('.suggestion-display');
-var favoritesDisplay = document.querySelector('.favorites-display');
+
 var displayItemInst = document.querySelector('.item');
 var displayIcon = document.querySelector('.cookpot');
+var sidesList = document.querySelector('.sides-list')
+var mainsList = document.querySelector('.mains-list')
+var dessertsList = document.querySelector('.desserts-list')
+var favoriteList = document.querySelectorAll('.favorite-list')
 
 var letsCookBtn = document.querySelector('.lets-cook');
 var favoriteBtn = document.querySelector('.add-favorite');
 var viewFavoritesBtn = document.querySelector('.view-favorites');
 var mainMenuBtn = document.querySelector('.main-menu');
 
-// add an eventlistner to favorites display
-// make it wait for double click,
-// then it runs remove favorite() adn then render favorites()
-// revmoe favorite () is going to take the event.target.closest('li').remove()
-
-
 letsCookBtn.addEventListener('click', displayItem);
 favoriteBtn.addEventListener('click', favoriteItem);
 viewFavoritesBtn.addEventListener('click', renderFavorites);
 mainMenuBtn.addEventListener('click', navBackToMain);
-favoritesDisplay.addEventListener('dblclick', function(){
-    removeFavorite()
-    renderFavorites()
-    viewFavorites()
+
+for (i=0;i< favoriteList.length; i++)
+    favoriteList[i].addEventListener('dblclick', function(){
+    removeFavorite(event)
 })
 
-function renderFavorites(){
-    favoritesDisplay.innerHTML = '';
-    var sides = formatFavorites(favoriteItems.sides);
-    var mains = formatFavorites(favoriteItems.mains);
-    var desserts = formatFavorites(favoriteItems.desserts);
-    favoritesDisplay.innerHTML = `
-        <div><h2>Sides</h2>
-        ${sides}</div>
-        <div><h2>Mains</h2>
-        ${mains}</div>
-        <div><h2>Desserts</h2>
-        ${desserts}</div>
-    `
+function removeFavorite(event) {
+    var typeArrayInst = favoriteItems[event.target.closest('.favorite-list').id]
+    for (var i = 0; i < typeArrayInst.length; i++){
+        if (typeArrayInst[i].name === event.target.innerText)
+        typeArrayInst[i].favorite = false
+        typeArrayInst.splice(i,1)
+    }
+    renderFavorites()
+}
+
+function renderFavorites() {
+    sidesList.innerHTML = '';
+    mainsList.innerHTML = '';
+    dessertsList.innerHTML = '';
+    var sides = formatFavorites(favoriteItems.sides, 'Sides');
+    var mains = formatFavorites(favoriteItems.mains, 'Mains');
+    var desserts = formatFavorites(favoriteItems.desserts, 'Desserts');
+    sidesList.innerHTML = `${sides}`
+    mainsList.innerHTML = `${mains}`
+    dessertsList.innerHTML = `${desserts}`
     viewFavorites()
 }
+
 function viewFavorites(){
     favoritesBox.classList.remove('hidden');
     mainBox.classList.add('hidden');
@@ -96,17 +102,17 @@ function viewFavorites(){
     mainMenuBtn.classList.remove('hidden');
 }
 
-function formatFavorites(typeInst){
+function formatFavorites(typeArrayInst, type){
     var HTMLString = ""
-    if (typeInst.length > 0) {
-        for (var i = 0; i < typeInst.length; i++) {
-            var itemName = typeInst[i].name
-            HTMLString += `<li>${itemName}</li>`
-            return HTMLString
+    if (typeArrayInst.length > 0) {
+        for (var i = 0; i < typeArrayInst.length; i++) {
+            var itemName = typeArrayInst[i].name
+            HTMLString += `<li class="favorite-inst">${itemName}</li>`
             } 
         } else {
-            return "Nothing here, yet!"
+            return `<h2>${type}</h2><li>Nothing here, yet!<li>`
     }
+    return `<h2>${type}</h2>${HTMLString}`
 } 
 
 
@@ -139,7 +145,11 @@ function getRandomIndex(array){
 }
 
 function favoriteItem(){
-    let x = currentItem.type
-    currentItem.favorite = true
-    favoriteItems[x].push(currentItem)
+    if (currentItem.favorite === true) {
+        return
+    } else { 
+        currentItem.favorite = true
+        let typeInst = currentItem.type
+        favoriteItems[typeInst].push(currentItem)
+    }
 }
