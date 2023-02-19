@@ -9,7 +9,7 @@ Users can access our application by clicking this [link](https://adam-meza.githu
 
 
 ### Preview of App:
-[Demo]((https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJhNGM0Mjc5ZDQ2ZWY5N2EyYTZjY2QzZjRkNjYxYWIwOTk3MTQ3MiZjdD1n/VGFiMnpy6GIddftp8F/giphy.gif)
+[Demo](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJhNGM0Mjc5ZDQ2ZWY5N2EyYTZjY2QzZjRkNjYxYWIwOTk3MTQ3MiZjdD1n/VGFiMnpy6GIddftp8F/giphy.gif)
 
 ### Context:
 The project took about 14 hours over the course of 5 days. It tested my knowledge of using javascript and CSS to manipulate HTML in the DOM. 
