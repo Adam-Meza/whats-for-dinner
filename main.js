@@ -44,49 +44,77 @@ var favoriteItems = {
     mains:[],
     desserts:[]
 }
-var mainBox = document.querySelector('.main-box')
-var suggestionBox = document.querySelector('.suggestion-box')
-var letsCookBtn = document.querySelector('.lets-cook');
+var mainBox = document.querySelector('.main-box');
+var suggestionBox = document.querySelector('.suggestion-box');
+var favoritesBox = document.querySelector('.favorites-box');
 var suggestionDisplay = document.querySelector('.suggestion-display');
+
 var displayItemInst = document.querySelector('.item');
 var displayIcon = document.querySelector('.cookpot');
-var favoriteBtn = document.querySelector('.add-favorite')
-var viewFavoritesBtn = document.querySelector('.view-favorites')
-var favoritesDisplay = document.querySelector('.favorites-display')
-var favoritesBox = document.querySelector('.favorites-box')
-var mainMenuBtn = document.querySelector('.main-menu')
+var sidesList = document.querySelector('.sides-list')
+var mainsList = document.querySelector('.mains-list')
+var dessertsList = document.querySelector('.desserts-list')
+var favoriteList = document.querySelectorAll('.favorite-list')
+
+var letsCookBtn = document.querySelector('.lets-cook');
+var favoriteBtn = document.querySelector('.add-favorite');
+var viewFavoritesBtn = document.querySelector('.view-favorites');
+var mainMenuBtn = document.querySelector('.main-menu');
 
 letsCookBtn.addEventListener('click', displayItem);
-favoriteBtn.addEventListener('click', favoriteItem)
-viewFavoritesBtn.addEventListener('click', viewFavorites)
-mainMenuBtn.addEventListener('click', navBackToMain)
+favoriteBtn.addEventListener('click', favoriteItem);
+viewFavoritesBtn.addEventListener('click', renderFavorites);
+mainMenuBtn.addEventListener('click', navBackToMain);
 
-function makeFavoritesString(typeInst) {
-    var itemsString = ''
-    for (i = 0; i < typeInst.length; i++) {
-        itemsString += `${typeInst[i].name}, `
-    }
-    return itemsString.slice(0, -2)
+for (i = 0; i < favoriteList.length; i++){
+    favoriteList[i].addEventListener('dblclick', function(){
+    removeFavorite(event)
+    })
 }
+
+function removeFavorite(event) {
+    var typeArrayInst = favoriteItems[event.target.closest('.favorite-list').id]
+    for (var i = 0; i < typeArrayInst.length; i++){
+        if (typeArrayInst[i].name === event.target.innerText)
+            typeArrayInst[i].favorite = false
+            typeArrayInst.splice(i,1)
+    }
+    renderFavorites()
+}
+
+function renderFavorites() {
+    sidesList.innerHTML = '';
+    mainsList.innerHTML = '';
+    dessertsList.innerHTML = '';
+    var sides = formatFavorites(favoriteItems.sides, 'Sides');
+    var mains = formatFavorites(favoriteItems.mains, 'Mains');
+    var desserts = formatFavorites(favoriteItems.desserts, 'Desserts');
+    sidesList.innerHTML = `${sides}`
+    mainsList.innerHTML = `${mains}`
+    dessertsList.innerHTML = `${desserts}`
+    viewFavorites()
+}
+
 function viewFavorites(){
-    favoritesDisplay.innerHTML = ''
-    var mains = favoriteItems.mains
-    var test = makeFavoritesString(mains)
-    favoritesDisplay.innerHTML = `
-    <ul></ul>
-        <li><h2>Sides</h2></li>
-        <ul></ul>
-        <li><h2>Mains</h2></li>
-        <ul>${test}</ul>
-        <li><h2>Desserts</h2></li>
-        <ul></ul>
-    `
     favoritesBox.classList.remove('hidden');
     mainBox.classList.add('hidden');
     suggestionBox.classList.add('hidden');
     viewFavoritesBtn.classList.add('hidden');
     mainMenuBtn.classList.remove('hidden');
 }
+
+function formatFavorites(typeArrayInst, type){
+    var HTMLString = ""
+    if (typeArrayInst.length > 0) {
+        for (var i = 0; i < typeArrayInst.length; i++) {
+            var itemName = typeArrayInst[i].name
+            HTMLString += `<li class="favorite-inst">${itemName}</li>`
+            } 
+        } else {
+            return `<h2>${type}</h2><li>Nothing here, yet!<li>`
+    }
+    return `<h2>${type}</h2>${HTMLString}`
+} 
 
 function navBackToMain(){
     favoritesBox.classList.add('hidden');
@@ -96,7 +124,6 @@ function navBackToMain(){
     mainMenuBtn.classList.add('hidden')
     displayIcon.classList.remove('hidden');
     suggestionDisplay.classList.add('hidden');
-;
 }
 
 function displayItem() {
@@ -118,7 +145,11 @@ function getRandomIndex(array){
 }
 
 function favoriteItem(){
-    let x = currentItem.type
-    currentItem.favorite = true
-    favoriteItems[x].push(currentItem)
+    if (currentItem.favorite === true) {
+        return
+    } else { 
+        currentItem.favorite = true
+        let typeInst = currentItem.type
+        favoriteItems[typeInst].push(currentItem)
+    }
 }
