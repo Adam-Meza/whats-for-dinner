@@ -79,7 +79,9 @@ ul{
     width: 60%;
     height: 100%;
     display: flex;
-    padding: 2%
+    padding: 2%;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .item-select{
