@@ -66,17 +66,18 @@ favoriteBtn.addEventListener('click', favoriteItem);
 viewFavoritesBtn.addEventListener('click', renderFavorites);
 mainMenuBtn.addEventListener('click', navBackToMain);
 
-for (i=0;i< favoriteList.length; i++)
+for (i = 0; i < favoriteList.length; i++){
     favoriteList[i].addEventListener('dblclick', function(){
     removeFavorite(event)
-})
+    })
+}
 
 function removeFavorite(event) {
     var typeArrayInst = favoriteItems[event.target.closest('.favorite-list').id]
     for (var i = 0; i < typeArrayInst.length; i++){
         if (typeArrayInst[i].name === event.target.innerText)
-        typeArrayInst[i].favorite = false
-        typeArrayInst.splice(i,1)
+            typeArrayInst[i].favorite = false
+            typeArrayInst.splice(i,1)
     }
     renderFavorites()
 }
@@ -114,7 +115,6 @@ function formatFavorites(typeArrayInst, type){
     }
     return `<h2>${type}</h2>${HTMLString}`
 } 
-
 
 function navBackToMain(){
     favoritesBox.classList.add('hidden');
